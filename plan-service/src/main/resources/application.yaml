@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:mysql://avnadmin:AVNS_zCi0VsuiHGsIFSnLxr-@plan-admin-plan-admin-module.g.aivencloud.com:24215/plan_db?ssl-mode=REQUIRED
     username: avnadmin
-#    password: AVNS_zCi0VsuiHGsIFSnLxr-
+    password:
 
   jpa:
     hibernate:
