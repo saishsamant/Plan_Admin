@@ -68,7 +68,7 @@ public class PlanController {
 
     // DELETE PLAN
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN','USER')")
     public ResponseEntity<Void> deletePlan(
             @PathVariable Long id) {
 
