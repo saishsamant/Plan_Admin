@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: plan-service
+  datasource:
+    url: jdbc:mysql://avnadmin:AVNS_zCi0VsuiHGsIFSnLxr-@plan-admin-plan-admin-module.g.aivencloud.com:24215/plan_db?ssl-mode=REQUIRED
+    username: avnadmin
+    password: AVNS_zCi0VsuiHGsIFSnLxr-
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  secret: MySuperSecretKeyForPlanAdminApplication2026VerySecureKey

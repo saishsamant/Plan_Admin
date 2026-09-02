@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="plan-admin">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/api-gateway.zip!/" />
+      <root url="jar://$PROJECT_DIR$/participant-service.zip!/" />
+      <root url="jar://$PROJECT_DIR$/auth-service.zip!/" />
+      <root url="jar://$PROJECT_DIR$/plan-service.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

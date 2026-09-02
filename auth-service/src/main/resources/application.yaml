@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:mysql://avnadmin:AVNS_zCi0VsuiHGsIFSnLxr-@plan-admin-plan-admin-module.g.aivencloud.com:24215/auth_db?ssl-mode=REQUIRED
+    username: avnadmin
+    password: AVNS_zCi0VsuiHGsIFSnLxr-
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8081
+
+jwt:
+  secret: MySuperSecretKeyForPlanAdminApplication2026VerySecureKey
+  expiration: 3600000
+
