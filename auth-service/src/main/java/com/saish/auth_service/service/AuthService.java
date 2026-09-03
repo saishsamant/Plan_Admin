@@ -5,6 +5,7 @@ import com.saish.auth_service.dto.LoginResponse;
 import com.saish.auth_service.dto.RegisterRequest;
 import com.saish.auth_service.dto.RegisterResponse;
 
+//Auth service
 public interface AuthService {
 
     RegisterResponse register(RegisterRequest request);
