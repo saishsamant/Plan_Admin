@@ -2,6 +2,7 @@ package com.saish.plan_service.controller;
 
 import com.saish.plan_service.dto.PlanRequest;
 import com.saish.plan_service.dto.PlanResponse;
+import com.saish.plan_service.entity.PlanStatus;
 import com.saish.plan_service.service.PlanService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -42,6 +43,21 @@ public class PlanController {
                 planService.getAllPlans()
         );
     }
+
+    //Get By planCode+PlanName+Status
+
+    @GetMapping("/search")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<List<PlanResponse>> getPlans(
+            @RequestParam(required = false) String planCode,
+            @RequestParam(required = false) String planName,
+            @RequestParam(required = false) PlanStatus status){
+
+
+
+        return ResponseEntity.ok(planService.serchPlans(planCode,planName,status));
+    }
+
 
     // GET PLAN BY ID
     @GetMapping("/{id}")

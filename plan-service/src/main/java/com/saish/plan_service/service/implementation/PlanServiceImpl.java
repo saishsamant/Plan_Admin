@@ -3,6 +3,7 @@ package com.saish.plan_service.service.implementation;
 import com.saish.plan_service.dto.PlanRequest;
 import com.saish.plan_service.dto.PlanResponse;
 import com.saish.plan_service.entity.Plan;
+import com.saish.plan_service.entity.PlanStatus;
 import com.saish.plan_service.exception.DuplicatePlanCodeException;
 import com.saish.plan_service.exception.ResourceNotFoundException;
 import com.saish.plan_service.mapper.PlanMapper;
@@ -69,6 +70,14 @@ public class PlanServiceImpl implements PlanService {
         log.info("Getting all Plans:{}");
 
         return planRepository.findAll()
+                .stream()
+                .map(planMapper::toResponse)
+                .toList();
+    }
+
+    @Override
+    public List<PlanResponse> serchPlans(String planCode, String planName, PlanStatus status) {
+        return planRepository.searchPlans(planCode,planName,status)
                 .stream()
                 .map(planMapper::toResponse)
                 .toList();

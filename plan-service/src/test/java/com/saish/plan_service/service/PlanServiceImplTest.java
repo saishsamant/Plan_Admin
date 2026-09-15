@@ -153,4 +153,47 @@ class PlanServiceImplTest {
         verify(planMapper).toResponse(savedPlan);
     }
 
+
+    //search plans with planCoe=PlanName+Status
+    @Test
+    void searchPlans_shouldReturnPlans_whenPlanCodeMatches() {
+
+        // Arrange
+        Plan plan = new Plan();
+        plan.setId(1L);
+        plan.setPlanCode("RET001");
+        plan.setPlanName("Retirement Plan");
+        plan.setStatus(PlanStatus.ACTIVE);
+
+        PlanResponse expectedResponse = PlanResponse.builder()
+                .id(plan.getId())
+                .planCode(plan.getPlanCode())
+                .planName(plan.getPlanName())
+                .status(plan.getStatus())
+                .build();
+
+        when(planRepository.searchPlans("RET001", null, null))
+                .thenReturn(List.of(plan));
+
+        when(planMapper.toResponse(plan))
+                .thenReturn(expectedResponse);
+
+        // Act
+        List<PlanResponse> result =
+                planService.serchPlans("RET001", null, null);
+
+        // Assert
+        assertEquals(1, result.size());
+        assertEquals("RET001", result.get(0).getPlanCode());
+        assertEquals("Retirement Plan", result.get(0).getPlanName());
+        assertEquals(PlanStatus.ACTIVE, result.get(0).getStatus());
+
+        // Verify
+        verify(planRepository)
+                .searchPlans("RET001", null, null);
+
+        verify(planMapper)
+                .toResponse(plan);
+    }
+
 }
